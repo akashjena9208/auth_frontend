@@ -378,13 +378,26 @@ export default function Navbar() {
       {/* TOP NAVBAR */}
       <nav className="border-b border-border px-4">
         <div className="max-w-7xl mx-auto h-14 flex items-center justify-between">
+          
           {/* LOGO */}
-          <div className="flex items-center gap-2 font-semibold">
+          {/* <div className="flex items-center gap-2 font-semibold">
             <span className="h-7 w-7 rounded-md bg-gradient-to-r from-primary to-primary/40 flex items-center justify-center text-sm">
               A
             </span>
             Auth App
-          </div>
+          </div> */}
+
+          {/* LOGO */}
+<NavLink
+  to="/"
+  className="flex items-center gap-2 font-semibold hover:opacity-90 transition"
+>
+  <span className="h-7 w-7 rounded-md bg-gradient-to-r from-primary to-primary/40 flex items-center justify-center text-sm">
+    A
+  </span>
+  <span>Auth App</span>
+</NavLink>
+
 
           {/* DESKTOP MENU */}
           <div className="hidden md:flex items-center gap-4">
