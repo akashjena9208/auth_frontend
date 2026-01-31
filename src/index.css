@@ -1,0 +1,200 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ===============================
+   THEME TOKENS (SHARED)
+================================ */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+}
+
+html, body {
+  min-height: 100%;
+}
+
+/* ===============================
+   SHARED BASE
+================================ */
+body {
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--foreground);
+}
+
+/* ===============================
+   THEME 1 — EMERALD (SECURE)
+================================ */
+.theme-1 {
+  --radius: 0.625rem;
+  --background: transparent;
+  --foreground: #ffffff;
+  --primary: #22c55e;
+  --primary-glow: #86efac;
+  --border: rgba(255,255,255,0.08);
+  --ring: #22c55e;
+}
+
+.theme-1 body {
+  background:
+    radial-gradient(
+      900px 700px at 70% 45%,
+      rgba(34,197,94,0.28),
+      transparent 65%
+    ),
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,0.025) 0px,
+      rgba(255,255,255,0.025) 160px,
+      rgba(0,0,0,0.15) 320px
+    ),
+    linear-gradient(135deg, #020617, #020617);
+}
+
+/* ===============================
+   THEME 2 — SPACE (OPENCLAW)
+================================ */
+.theme-2 {
+  --radius: 0.625rem;
+  --background: transparent;
+  --foreground: #ffffff;
+  --primary: #ff4d4d;
+  --border: rgba(255,255,255,0.08);
+  --ring: #ff4d4d;
+}
+
+.theme-2 body {
+  background:
+    radial-gradient(
+      800px 700px at 65% 40%,
+      rgba(20,170,160,0.45),
+      transparent 65%
+    ),
+    radial-gradient(
+      800px 700px at 20% 15%,
+      rgba(140,70,140,0.55),
+      transparent 70%
+    ),
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,0.035) 0px,
+      rgba(255,255,255,0.035) 140px,
+      rgba(0,0,0,0.12) 280px
+    ),
+    linear-gradient(135deg, #160c15, #0c1118, #071c1e);
+}
+
+/* ===============================
+   THEME 3 — CYAN / TECH
+================================ */
+.theme-3 {
+  --radius: 0.625rem;
+  --background: transparent;
+  --foreground: #ffffff;
+  --primary: #38bdf8;
+  --primary-glow: #7dd3fc;
+  --border: rgba(255,255,255,0.08);
+  --ring: #38bdf8;
+}
+
+.theme-3 body {
+  background:
+    radial-gradient(
+      900px 700px at 70% 45%,
+      rgba(56,189,248,0.35),
+      transparent 65%
+    ),
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,0.025) 0px,
+      rgba(255,255,255,0.025) 160px,
+      rgba(0,0,0,0.15) 320px
+    ),
+    linear-gradient(135deg, #020617, #020617);
+}
+
+/* ===============================
+   BUTTON + NAV HOVER (UNCHANGED)
+================================ */
+.btn {
+  cursor: pointer;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.nav-link {
+  position: relative;
+  transition: transform 220ms ease, color 220ms ease, text-shadow 220ms ease;
+}
+
+.nav-link:hover {
+  transform: scale(1.08);
+}
+
+/* ===============================
+   SMOOTH THEME TRANSITION
+================================ */
+* {
+  transition:
+    background-color 280ms ease,
+    color 280ms ease,
+    border-color 280ms ease,
+    box-shadow 280ms ease,
+    transform 180ms ease;
+}
+
+/* ===============================
+   ICON THEME TOGGLE
+================================ */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.15),
+    0 0 18px color-mix(in srgb, var(--primary) 45%, transparent);
+  transform: scale(1.05);
+}
+
+/* THEME ICON BUTTON */
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.15),
+    0 0 18px color-mix(in srgb, var(--primary) 40%, transparent);
+}
