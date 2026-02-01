@@ -22,10 +22,15 @@ apiClient.interceptors.request.use((config) => {
   return config;
 });
 
-let isRefreshing = false;
-let pending: any[] = [];
+// let isRefreshing = false;
+// let pending: any[] = [];
+type PendingRequest = (newToken: string) => void;
 
-function queueRequest(cb: any) {
+let isRefreshing = false;
+let pending: PendingRequest[] = [];
+
+
+function queueRequest(cb: PendingRequest) {
   pending.push(cb);
 }
 

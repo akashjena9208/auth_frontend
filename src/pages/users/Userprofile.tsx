@@ -22,9 +22,16 @@ export default function UserProfile() {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({ name: "" });
 
+  // useEffect(() => {
+  //   if (user) setFormData({ name: user.name || "" });
+  // }, [user]);
   useEffect(() => {
-    if (user) setFormData({ name: user.name || "" });
-  }, [user]);
+  if (user) {
+    Promise.resolve().then(() => {
+      setFormData({ name: user.name || "" });
+    });
+  }
+}, [user]);
 
   const handleSave = () => {
     console.log("Saved:", formData);
