@@ -128,7 +128,7 @@ function Login() {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="you@example.com"
+                    placeholder="akash@gmail.com"
                     className="pl-10"
                     name="email"
                     value={loginData.email}

@@ -112,7 +112,7 @@ function Signup() {
                   <Input
                     id="name"
                     type="text"
-                    placeholder="John Doe"
+                    placeholder="Akash Kumar"
                     className="pl-10"
                     name="name"
                     value={data.name}
@@ -129,7 +129,7 @@ function Signup() {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="you@example.com"
+                    placeholder="akash@gmail.com"
                     className="pl-10"
                     name="email"
                     value={data.email}

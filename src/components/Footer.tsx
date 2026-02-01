@@ -12,19 +12,6 @@ export default function Footer() {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-12 text-sm">
-
-        {/* BRAND */}
-        {/* <div className="space-y-5">
-          <Logo />
-          <p className="text-muted-foreground leading-relaxed">
-            SecureAuth provides authentication infrastructure designed for
-            reliability, scalability, and modern application security.
-          </p>
-          <p className="text-xs text-muted-foreground">
-            Developed by <span className="text-primary font-medium">Akash Jena</span>
-          </p>
-        </div> */}
-        {/* BRAND */}
         {/* BRAND */}
         <div className="space-y-5">
         <Logo />

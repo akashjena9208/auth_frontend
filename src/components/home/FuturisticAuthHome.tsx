@@ -198,29 +198,6 @@ export default function FuturisticAuthHome() {
           ))}
         </div>
       </section>
-
-      {/* ================= FOOTER ================= */}
-      {/* <footer className="py-10 text-center text-muted-foreground border-t border-border">
-        © {new Date().getFullYear()} Futuristic Auth. All rights reserved.
-      </footer> */}
-      
-        {/* <footer className="py-12 text-center text-muted-foreground border-t border-border space-y-4">
-          <p>
-            © {new Date().getFullYear()} SecureAuth. Authentication infrastructure for modern applications.
-          </p>
-
-          <p className="text-sm">
-            Developed by <span className="text-primary font-medium">Akash Jena</span>
-          </p>
-
-          <div className="flex justify-center gap-6 text-sm">
-            <a href="https://github.com/YOUR_GITHUB" target="_blank" className="hover:text-primary transition">GitHub</a>
-            <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" className="hover:text-primary transition">LinkedIn</a>
-            <a href="https://portfolio-link.com" target="_blank" className="hover:text-primary transition">Portfolio</a>
-          </div>
-        </footer> */}
-
-
     </div>
   );
 }
