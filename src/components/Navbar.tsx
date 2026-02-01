@@ -197,6 +197,30 @@ import useAuth from "@/auth/store";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState("theme-1");
+  useEffect(() => {
+  if (open) {
+    // lock scroll
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+  } else {
+    // unlock scroll
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+    document.body.style.position = "";
+    document.body.style.width = "";
+  }
+
+  return () => {
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+    document.body.style.position = "";
+    document.body.style.width = "";
+  };
+}, [open]);
+
+
 
   const checkLogin = useAuth((s) => s.checkLogin);
   const user = useAuth((s) => s.user);
@@ -227,7 +251,18 @@ export default function Navbar() {
   return (
     <>
       {/* ================= TOP NAVBAR ================= */}
-      <nav className="border-b border-border px-4">
+      <nav
+          className="
+            fixed top-0 left-0 right-0
+            z-[999]
+            h-14
+            px-4
+            bg-black/40 backdrop-blur-2xl
+            border-b border-white/10
+          "
+        >
+
+
         <div className="max-w-7xl mx-auto h-14 flex items-center justify-between">
           
           {/* LOGO */}
@@ -303,7 +338,7 @@ export default function Navbar() {
         className={`
           fixed top-0 right-0 z-50 h-full
           w-full sm:w-80
-          bg-white/[0.01] backdrop-blur-[5px]
+          bg-white/[0.01] backdrop-blur-[3px]
           border-l border-white/10
           shadow-2xl
           transform transition-transform duration-300
