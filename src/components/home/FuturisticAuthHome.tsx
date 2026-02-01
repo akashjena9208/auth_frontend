@@ -204,7 +204,7 @@ export default function FuturisticAuthHome() {
         © {new Date().getFullYear()} Futuristic Auth. All rights reserved.
       </footer> */}
       
-        <footer className="py-12 text-center text-muted-foreground border-t border-border space-y-4">
+        {/* <footer className="py-12 text-center text-muted-foreground border-t border-border space-y-4">
           <p>
             © {new Date().getFullYear()} SecureAuth. Authentication infrastructure for modern applications.
           </p>
@@ -218,7 +218,7 @@ export default function FuturisticAuthHome() {
             <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" className="hover:text-primary transition">LinkedIn</a>
             <a href="https://portfolio-link.com" target="_blank" className="hover:text-primary transition">Portfolio</a>
           </div>
-        </footer>
+        </footer> */}
 
 
     </div>
