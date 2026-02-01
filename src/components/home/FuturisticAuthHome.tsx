@@ -217,134 +217,171 @@ export default function FuturisticAuthHome() {
   };
 
   const handleLearnMore = () => {
-    document.getElementById("features")?.scrollIntoView({ behavior: "smooth" });
+    document
+      .getElementById("features")
+      ?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-hidden">
-      {/* BACKGROUND */}
+      {/* ================= BACKGROUND GLOW ================= */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute -top-40 -left-40 w-[400px] h-[400px] bg-primary/30 blur-[140px] rounded-full" />
+        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-primary/30 blur-[140px] rounded-full" />
         <div className="absolute bottom-[-200px] right-[-200px] w-[500px] h-[500px] bg-cyan-400/20 blur-[140px] rounded-full" />
       </div>
 
       {/* ================= HERO ================= */}
-      <section className="py-24 px-6 lg:px-20">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-          {/* LEFT */}
-          <div className="flex-1 text-center lg:text-left">
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl sm:text-5xl lg:text-7xl font-extrabold"
+      <section className="relative pt-20 pb-16 sm:py-32 px-4 sm:px-6 text-center flex flex-col items-center justify-center">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
+          className="text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-tight"
+        >
+          A modern platform for secure
+          <span className="block bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
+            Access...
+          </span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="mt-4 sm:mt-6 max-w-2xl text-base sm:text-lg md:text-xl text-muted-foreground"
+        >
+          A next-generation authentication platform engineered for security,
+          speed, and modern applications.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+          className="mt-6 sm:mt-12 flex flex-col sm:flex-row gap-4 sm:gap-6"
+        >
+          {/* GET STARTED */}
+          <motion.div whileTap={{ scale: 0.95 }}>
+            <Button
+              size="lg"
+              onClick={handleGetStarted}
+              className="rounded-2xl text-lg px-8 shadow-lg shadow-primary/40 hover:shadow-primary/70 transition"
             >
-              A modern platform for secure
-              <span className="block bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
-                Access
-              </span>
-            </motion.h1>
+              Get Started
+            </Button>
+          </motion.div>
 
-            <p className="mt-6 max-w-xl mx-auto lg:mx-0 text-muted-foreground text-lg">
-              Next-generation authentication engineered for security, speed,
-              and scalability.
-            </p>
-
-            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button size="lg" onClick={handleGetStarted}>
-                Get Started
-              </Button>
-              <Button size="lg" variant="outline" onClick={handleLearnMore}>
-                Learn More
-              </Button>
-            </div>
-          </div>
-
-          {/* RIGHT (visual spacer for desktop) */}
-          <div className="hidden lg:block flex-1 h-[320px] rounded-3xl bg-card/40 backdrop-blur-xl border border-border" />
-        </div>
+          {/* LEARN MORE */}
+          <Button
+            size="lg"
+            variant="outline"
+            onClick={handleLearnMore}
+            className="rounded-2xl text-lg px-8 border-border hover:bg-primary/10 transition"
+          >
+            Learn More
+          </Button>
+        </motion.div>
       </section>
 
       {/* ================= FEATURES ================= */}
-      <section id="features" className="py-24 px-6 lg:px-20">
-        <h2 className="text-3xl lg:text-4xl font-bold mb-16 text-center lg:text-left max-w-7xl mx-auto">
+      <section id="features" className="py-24 sm:py-28 px-4 sm:px-6">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16">
           Powerful Features
         </h2>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 max-w-6xl mx-auto">
           {[
             {
               title: "Secure Authentication",
-              desc: "Robust login and identity verification.",
+              desc: "Robust login and identity verification for modern applications.",
               icon: <Lock className="w-10 h-10" />,
             },
             {
-              title: "Role-Based Access",
-              desc: "Fine-grained permission control.",
+              title: "Role-Based Access Control",
+              desc: "Fine-grained permissions to protect sensitive resources.",
               icon: <Shield className="w-10 h-10" />,
             },
             {
               title: "Session Management",
-              desc: "Secure session & token handling.",
+              desc: "Secure sessions with token handling and protection.",
               icon: <Fingerprint className="w-10 h-10" />,
             },
           ].map((f, i) => (
-            <Card
+            <motion.div
               key={i}
-              className="bg-card/60 backdrop-blur-xl rounded-3xl"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+              viewport={{ once: true }}
             >
-              <CardContent className="p-8">
-                <div className="text-primary mb-6">{f.icon}</div>
-                <h3 className="text-xl font-semibold mb-3">{f.title}</h3>
-                <p className="text-muted-foreground">{f.desc}</p>
-              </CardContent>
-            </Card>
+              <Card className="relative bg-card/60 backdrop-blur-xl border-border rounded-3xl shadow-xl hover:shadow-primary/30 transition group">
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition" />
+                <CardContent className="relative p-8 text-center">
+                  <div className="flex justify-center mb-6 text-primary">
+                    {f.icon}
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-3">{f.title}</h3>
+                  <p className="text-muted-foreground">{f.desc}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </section>
 
       {/* ================= CTA ================= */}
-      <section className="py-24 px-6 lg:px-20 bg-card/40 border-t border-border">
-        <div className="max-w-7xl mx-auto text-center lg:text-left">
-          <h2 className="text-3xl lg:text-4xl font-bold">
-            Start Securing Your App Today
-          </h2>
+      <section className="py-24 sm:py-32 px-4 sm:px-6 text-center bg-card/40 backdrop-blur-xl border-t border-border">
+        <h2 className="text-3xl sm:text-4xl font-bold">
+          Start Securing Your App Today
+        </h2>
 
-          <p className="mt-4 max-w-xl mx-auto lg:mx-0 text-muted-foreground">
-            Trusted by developers worldwide.
-          </p>
+        <p className="mt-4 max-w-xl mx-auto text-muted-foreground text-base sm:text-lg">
+          Join developers worldwide building secure, scalable applications.
+        </p>
 
+        <motion.div whileTap={{ scale: 0.95 }}>
           <Button
             size="lg"
             onClick={handleGetStarted}
-            className="mt-8"
+            className="mt-8 sm:mt-10 px-10 text-lg rounded-2xl shadow-xl shadow-primary/40 hover:shadow-primary/70 transition"
           >
             Create Account
           </Button>
-        </div>
+        </motion.div>
       </section>
 
-      {/* ================= WHY US ================= */}
-      <section className="py-24 px-6 lg:px-20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {[ 
+      {/* ================= WHY CHOOSE US ================= */}
+      <section className="py-24 sm:py-28 px-4 sm:px-6">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-14">
+          Why Choose Our Auth Platform?
+        </h2>
+
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 text-muted-foreground">
+          {[
             "AI-Driven Security",
             "Lightning-Fast Performance",
             "Developer-Friendly API",
             "Highly Customizable",
           ].map((title, i) => (
-            <div key={i}>
-              <h3 className="text-xl font-semibold flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-primary" />
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.15 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl sm:text-2xl font-semibold mb-3 flex items-center gap-2">
+                <Sparkles className="w-6 h-6 text-primary" />
                 {title}
               </h3>
-              <p className="mt-2 text-muted-foreground">
-                Built for modern applications and real-world scale.
+              <p>
+                Built for modern security needs while staying flexible,
+                fast, and developer-friendly.
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
     </div>
   );
 }
-
